@@ -4,21 +4,76 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss"><!-- do not remove this line! -->
+    <!-- <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss">do not remove this line! -->
     <title>Staf Boilerplate</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #tablero {
+        height: 100vh;
+        background-color: black;
+        position: relative;
+      }
+
+      #ball {
+        width: 20px;
+        aspect-ratio: 1;
+        background-color: white;
+        position: absolute;
+        border-radius: 50%;
+      }
+    </style>
   </head>
   <body>
-    <div class="staf-container">
-      <picture>
-        <source srcset="./assets/images/logo.png?as=webp&width=350" type="image/webp" />
-        <img src="./assets/images/logo.png?width=350" alt="Logotipo Staf" class="uoc-logo" />
-      </picture>
-      <h1 class="staf-title">Hello, Staf!</h1>
-      <p>
-        Este template está creado para el módulo MF0952 del Certificado de Profesionalidad IFCD0110 - Confección y publicación de páginas web de <a href="https://staformacion.org">Staf</a>.
-      </p>
+    <div id="tablero">
+      <div id="ball"></div>
     </div>
     <include src="./views/footer.html"></include>
+    <script>
+
+      const tablero = document.getElementById('tablero');
+
+      const ball = document.getElementById('ball');
+
+      let posY = 0;
+      let posX = 0;
+      let dirY = 1;
+      let dirX = 1;
+      const velocidad = 10;
+
+      function rebotar() {
+        const limiteX = tablero.clientWidth - 20;
+        const limiteY = tablero.clientHeight - 20;
+
+        posY += velocidad * dirY;
+        if (posY > limiteY) {
+          posY = limiteY;
+          dirY = -1;
+        } else if (posY < 0) {
+          posY = 0;
+          dirY = 1;
+        }
+
+        posX += velocidad * dirX;
+        if (posX > limiteX) {
+          posX = limiteX;
+          dirX = -1;
+        } else if (posX < 0) {
+          posX = 0;
+          dirX = 1;
+        }
+
+        ball.style.left = posX + 'px';
+        ball.style.top = posY + 'px';
+
+      }
+
+      setInterval(rebotar,20);
+
+    </script>
     <script type="module" src="./assets/scripts/main.js"></script><!-- do not remove this line! -->
   </body>
 </html>
