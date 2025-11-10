@@ -16,6 +16,7 @@
         height: 100vh;
         background-color: black;
         position: relative;
+        overflow: hidden;
       }
 
       #ball {
@@ -31,7 +32,7 @@
     <div id="tablero">
       <div id="ball"></div>
     </div>
-    <include src="./views/footer.html"></include>
+    <!-- <include src="./views/footer.html"></include> -->
     <script>
 
       const tablero = document.getElementById('tablero');
@@ -74,6 +75,6 @@
       setInterval(rebotar,20);
 
     </script>
-    <script type="module" src="./assets/scripts/main.js"></script><!-- do not remove this line! -->
+    <!-- <script type="module" src="./assets/scripts/main.js"></script>do not remove this line! -->
   </body>
 </html>
