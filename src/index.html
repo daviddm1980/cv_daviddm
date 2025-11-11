@@ -20,7 +20,6 @@
             max-width: 1200px;
             margin: auto;
             padding: 20px;
-            
         }
         h2 {
             font-size: 1rem;
@@ -49,6 +48,13 @@
         }
         section {
             letter-spacing: 1px;
+        }
+
+
+        #terminal {
+            color: greenyellow;
+             white-space: pre;
+             height: 200px;
         }
     </style>
 </head>
@@ -93,16 +99,72 @@
     </section>
     <section id="habilidades">
         <h2>Habilidades <span class="corchete">{</span></h2>
-        <p class="funcion">HTML;</p>
-        <p class="funcion">CSS;</p>
-        <p class="funcion">JavaScript(nativo);</p>
-        <p class="funcion">JQuery;</p>
-        <p class="funcion">Bootstrap;</p>
-        <p class="funcion">GitHub;</p>
-        <p class="funcion">Angular(basico)</p>
-        <h2><span class="corchete">};</span></h2>
+        <div class="funcion">
+            <p>const skills = [
+                <p class="funcion">'HTML',</p>
+                <p class="funcion">'CSS',</p>
+                <p class="funcion">'JavaScript(native)',</p>
+                <p class="funcion">'JQuery',</p>
+                <p class="funcion">'Bootstrap',</p>
+                <p class="funcion">'GitHub',</p>
+                <p class="funcion">'Angular(basic)'</p>
+            ];</p>
+        </div>
+        <br>
+        <h1><span>};</span></h1>
     </section>
+    <div id="terminal"></div>
     </div>
+     <script>
+    const texto = `> skills.forEach(e => console.log(e));
+    'HTML'
+    'CSS'
+    'JavaScript(native)'
+    'JQuery'
+    'Bootstrap'
+    'GitHub'
+    'Angular(basic)'
+    `;
+
+    const terminal = document.getElementById('terminal');
+
+    let escribiendo = true;
+    let i = 0;
+    let borrando = false;
+
+    function animacionTerminal() {
+    if (escribiendo && i < texto.length) {
+        
+        terminal.textContent = texto.substring(0, i + 1);
+        i++;
+        setTimeout(animacionTerminal, 60); 
+    } else if (escribiendo && i >= texto.length) {
+        
+        escribiendo = false;
+        borrando = false;
+        setTimeout(() => {
+        borrando = true;
+        setTimeout(animacionTerminal, 100); 
+        }, 2000); 
+    } else if (borrando && i > 0) {
+        
+        i--;
+        terminal.textContent = texto.substring(0, i);
+        setTimeout(animacionTerminal, 40); 
+    } else if (borrando && i <= 0) {
+        
+        borrando = false;
+        setTimeout(() => {
+        escribiendo = true;
+        setTimeout(animacionTerminal, 100);
+        }, 1000); 
+    }
+    }
+
     
+    window.addEventListener('load', () => {
+    animacionTerminal();
+});
+</script>
 </body>
 </html>
