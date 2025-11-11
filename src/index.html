@@ -1,67 +1,99 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
 
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Staf Boilerplate</title>
-    <link rel="stylesheet" href="assets/styles/main.css">
-  </head>
-  <body>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: #1F1F1F;
+            color: #dadada;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            
+        }
+        h2 {
+            font-size: 2rem;
+        }
+        .main_header p{
+            color: greenyellow;
+        }
+
+        .main_header a {
+            text-decoration: none;
+            color: greenyellow;
+        }
+
+        .funcion {
+            max-width: 800px;
+            margin: 10px 40px;
+        }
+        .funcion_container {
+            color: rgb(35, 0, 208);
+        }
+
+        .corchete {
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="main_header">
+        <h1>David Diaz <span class="corchete">{</span></h1>
+        <p>// Web Junior</p>
+        <p>// <a href="mailto:daviddm1980@outlook.com">daviddm1980@outlook.com</a> </p>
+        <p>// 644 71 46 33</p>
+    </header>
     
-    <div id="tablero">
-      <div class="container">
-      <h1>EN CONSTRUCCION</h1>
+    <section id="about">
+        <h2>Sobre mi <span class="corchete">{</span></h2>
+        <p class="funcion">Actualmente estoy cursando la formación profesional IFCD0110 (Desarrollo de Aplicaciones con Tecnologías Web), con el objetivo de iniciar mi carrera en el sector tecnológico. Tengo sólidos conocimientos en HTML, CSS y JavaScript nativo, además de experiencia práctica con jQuery y Bootstrap para el desarrollo de interfaces web responsivas y funcionales. Me considero una persona metódica, con atención al detalle y comprometida con escribir código limpio y accesible. Estoy motivado por seguir aprendiendo, enfrentar nuevos retos técnicos y contribuir con entusiasmo a proyectos reales en entornos profesionales. </p>
+        <h2 class="corchete">}</h2>
+    </section>
+    <section id="educacion">
+        <h2>Estudios <span class="corchete">{</span></h2>
+        <p class="funcion">Graduado Escolar (C.P Sant Sadurní);</p>
+        <p class="funcion">Curso IFCD0110 - HTML, CSS, JavaScript;</p>
+        <h2><span class="corchete">}</span></h2>
+    </section>
+    <section id="experiencia">
+        <h2>Experiencia {</h2>
+        <p class="funcion_container">Decomep(2012-2016) <span class="corchete">{</span></p>
+            <div class="funcion">
+                <p>Mantenimiento Industrial;</p>
+                <p>Labores de mantenimiento de una linea producción, soldadura mig/mag, electrodo;</p>
+                <p>Acondicionamineto de la linea de produccion y control de STOCKs;</p>
+            </div>
+        <p class="funcion_container"><span class="corchete">}</span></p>  
+        <p class="funcion_container">Interflex(2016-2021) <span class="corchete">{</span></p>
+            <div class="funcion">
+                <p>Picking Almacén Inteligente;</p>
+                <p>Control de stocks informatizados, programa de control de stocks;</p>
+                <p>Peticiones al almacén de productos, así como solventar los problemas mecanicos de los traslos y plcs;</p>
+            </div>
+            
+        <p class="funcion_container"><span class="corchete">}</span></p>
+        <h2>}</h2>
+    </section>
+    <section id="habilidades">
+        <h2>Habilidades <span class="corchete">{</span></h2>
+        <p class="funcion">HTML;</p>
+        <p class="funcion">CSS;</p>
+        <p class="funcion">JavaScript(nativo);</p>
+        <p class="funcion">JQuery;</p>
+        <p class="funcion">Bootstrap;</p>
+        <p class="funcion">GitHub;</p>
+        <p class="funcion">Angular(basico)</p>
+        <h2><span class="corchete">};</span></h2>
+    </section>
     </div>
-      <div id="ball"></div>
-    </div>
-    <div class="terminal_container">
-      <h2>daviddm@arch-linux:~$</h2>
-    </div>
-
-    <!-- <include src="./views/footer.html"></include> -->
-    <script>
-
-      const tablero = document.getElementById('tablero');
-
-      const ball = document.getElementById('ball');
-
-      let posY = 0;
-      let posX = 0;
-      let dirY = 1;
-      let dirX = 1;
-      const velocidad = 10;
-
-      function rebotar() {
-        const limiteX = tablero.clientWidth - 20;
-        const limiteY = tablero.clientHeight - 20;
-
-        posY += velocidad * dirY;
-        if (posY > limiteY) {
-          posY = limiteY;
-          dirY = -1;
-        } else if (posY < 0) {
-          posY = 0;
-          dirY = 1;
-        }
-
-        posX += velocidad * dirX;
-        if (posX > limiteX) {
-          posX = limiteX;
-          dirX = -1;
-        } else if (posX < 0) {
-          posX = 0;
-          dirX = 1;
-        }
-
-        ball.style.left = posX + 'px';
-        ball.style.top = posY + 'px';
-
-      }
-
-      setInterval(rebotar,20);
-
-    </script>
-    <!-- <script type="module" src="./assets/scripts/main.js"></script>do not remove this line! -->
-  </body>
+    
+</body>
 </html>
