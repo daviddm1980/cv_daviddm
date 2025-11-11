@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Share Tech Mono", monospace;
+        }
+        .container {
+            background-color: #1F1F1F;
+            color: #dadada;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        h2 {
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+        .main_header p{
+            color: greenyellow;
+        }
+
+        .main_header a {
+            text-decoration: none;
+            color: greenyellow;
+        }
+
+        .funcion {
+            max-width: 800px;
+            margin: 10px 40px;
+        }
+        .funcion_container {
+            color: rgb(35, 0, 208);
+            margin: 10px 40px;
+        }
+
+        .corchete {
+            color: grey;
+        }
+        section {
+            letter-spacing: 1px;
+        }
+
+
+        #terminal {
+        color: greenyellow;
+            white-space: pre;
+            height: 200px;
+        }
+
+        #const {
+            color: red;
+        }
+
+        footer {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="main_header">
+        <h1>David Diaz <span class="corchete">{</span></h1>
+        <p>// Web Junior</p>
+        <p>// <a href="mailto:daviddm1980@outlook.com">daviddm1980@outlook.com</a> </p>
+        <p>// 644 71 46 33</p>
+    </header>
+    
+    <section id="about">
+        <h2>Sobre mi <span class="corchete">{</span></h2>
+        <p class="funcion">Actualmente estoy cursando la formación profesional IFCD0110 (Desarrollo de Aplicaciones con Tecnologías Web), con el objetivo de iniciar mi carrera en el sector tecnológico. Tengo sólidos conocimientos en HTML, CSS y JavaScript nativo, además de experiencia práctica con jQuery y Bootstrap para el desarrollo de interfaces web responsivas y funcionales. Me considero una persona metódica, con atención al detalle y comprometida con escribir código limpio y accesible. Estoy motivado por seguir aprendiendo, enfrentar nuevos retos técnicos y contribuir con entusiasmo a proyectos reales en entornos profesionales. </p>
+        <h2 class="corchete">}</h2>
+    </section>
+    <section id="educacion">
+        <h2>Estudios <span class="corchete">{</span></h2>
+        <p class="funcion">Graduado Escolar (C.P Sant Sadurní);</p>
+        <p class="funcion">Curso IFCD0110 - HTML, CSS, JavaScript;</p>
+        <h2><span class="corchete">}</span></h2>
+    </section>
+    <section id="experiencia">
+        <h2>Experiencia {</h2>
+        <p class="funcion_container">Decomep (2012-2016) <span class="corchete">{</span></p>
+            <div class="funcion">
+                <p>Mantenimiento Industrial;</p>
+                <p>Labores de mantenimiento de una linea producción, soldadura mig/mag, electrodo;</p>
+                <p>Acondicionamineto de la linea de produccion y control de STOCKs;</p>
+            </div>
+        <p class="funcion_container"><span class="corchete">}</span></p>  
+        <p class="funcion_container">Interflex (2016-2021) <span class="corchete">{</span></p>
+            <div class="funcion">
+                <p>Picking Almacén Inteligente;</p>
+                <p>Control de stocks informatizados, programa de control de stocks;</p>
+                <p>Peticiones al almacén de productos, así como solventar los problemas mecanicos de los traslos y plcs;</p>
+            </div>
+            
+        <p class="funcion_container"><span class="corchete">}</span></p>
+        <h2>}</h2>
+    </section>
+    <section id="habilidades">
+        <h2>Habilidades <span class="corchete">{</span></h2>
+        <div class="funcion">
+            <p><span id="const">const</span> skills = [
+                <p class="funcion">'HTML',</p>
+                <p class="funcion">'CSS',</p>
+                <p class="funcion">'JavaScript(native)',</p>
+                <p class="funcion">'JQuery',</p>
+                <p class="funcion">'Bootstrap',</p>
+                <p class="funcion">'GitHub',</p>
+                <p class="funcion">'Angular(basic)'</p>
+            ];</p>
+        </div>
+        <br>
+        <h1><span>};</span></h1>
+    </section>
+    <div id="terminal"></div>
+    <footer><small>David Diaz | &copysr; TODOS LOS DERECHOS RESERVADOS</small></footer>
+</div>
+</body>
+    <script>
+        const texto = `> skills.forEach(e => console.log(e));
+        'HTML'
+        'CSS'
+        'JavaScript(native)'
+        'JQuery'
+        'Bootstrap'
+        'GitHub'
+        'Angular(basic)'
+        `;
+
+        const terminal = document.getElementById('terminal');
+
+        function escribirTexto() {
+            let i = 0;
+            terminal.textContent = ''; 
+            function escribir() {
+                if (i < texto.length) {
+                terminal.textContent += texto[i];
+                i++;
+                setTimeout(escribir, 60); 
+        } else {
+        
+            setTimeout(() => {
+            terminal.textContent = ''; 
+            setTimeout(iniciarCiclo, 1000);
+        }, 2000); 
+            }
+        }
+
+        escribir();
+        }
+
+        function iniciarCiclo() {
+            escribirTexto();
+        }
+
+        window.addEventListener('load', () => {
+            iniciarCiclo();
+        });
+    </script>
+</body>
+</html>
