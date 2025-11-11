@@ -16,7 +16,6 @@
 
 body {
     font-family: "Inter", sans-serif;
-    background-color: var(--bg-color);
     color: var(--text-color);
 }
 
@@ -33,7 +32,6 @@ body {
 
     #tablero {
     height: 100vh;
-    background-color: black;
     position: relative;
     overflow: hidden;
 }
