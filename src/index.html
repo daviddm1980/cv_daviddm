@@ -115,56 +115,46 @@
     </section>
     <div id="terminal"></div>
     </div>
-     <script>
-    const texto = `> skills.forEach(e => console.log(e));
-    'HTML'
-    'CSS'
-    'JavaScript(native)'
-    'JQuery'
-    'Bootstrap'
-    'GitHub'
-    'Angular(basic)'
-    `;
+    <script>
+        const texto = `> skills.forEach(e => console.log(e));
+        'HTML'
+        'CSS'
+        'JavaScript(native)'
+        'JQuery'
+        'Bootstrap'
+        'GitHub'
+        'Angular(basic)'
+        `;
 
-    const terminal = document.getElementById('terminal');
+        const terminal = document.getElementById('terminal');
 
-    let escribiendo = true;
-    let i = 0;
-    let borrando = false;
-
-    function animacionTerminal() {
-    if (escribiendo && i < texto.length) {
-        
-        terminal.textContent = texto.substring(0, i + 1);
+        function escribirTexto() {
+        let i = 0;
+        terminal.textContent = ''; 
+        function escribir() {
+        if (i < texto.length) {
+        terminal.textContent += texto[i];
         i++;
-        setTimeout(animacionTerminal, 60); 
-    } else if (escribiendo && i >= texto.length) {
+        setTimeout(escribir, 60); 
+        } else {
         
-        escribiendo = false;
-        borrando = false;
         setTimeout(() => {
-        borrando = true;
-        setTimeout(animacionTerminal, 100); 
+        terminal.textContent = ''; 
+        setTimeout(iniciarCiclo, 1000);
         }, 2000); 
-    } else if (borrando && i > 0) {
-        
-        i--;
-        terminal.textContent = texto.substring(0, i);
-        setTimeout(animacionTerminal, 40); 
-    } else if (borrando && i <= 0) {
-        
-        borrando = false;
-        setTimeout(() => {
-        escribiendo = true;
-        setTimeout(animacionTerminal, 100);
-        }, 1000); 
-    }
-    }
+            }
+        }
 
-    
-    window.addEventListener('load', () => {
-    animacionTerminal();
-});
-</script>
+        escribir();
+        }
+
+        function iniciarCiclo() {
+        escribirTexto();
+        }
+
+        window.addEventListener('load', () => {
+        iniciarCiclo();
+        });
+    </script>
 </body>
 </html>
