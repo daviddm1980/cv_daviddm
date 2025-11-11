@@ -139,13 +139,13 @@
         const terminal = document.getElementById('terminal');
 
         function escribirTexto() {
-        let i = 0;
-        terminal.textContent = ''; 
-        function escribir() {
-        if (i < texto.length) {
-        terminal.textContent += texto[i];
-        i++;
-        setTimeout(escribir, 60); 
+            let i = 0;
+            terminal.textContent = ''; 
+            function escribir() {
+                if (i < texto.length) {
+                terminal.textContent += texto[i];
+                i++;
+                setTimeout(escribir, 60); 
         } else {
         
         setTimeout(() => {
@@ -159,11 +159,11 @@
         }
 
         function iniciarCiclo() {
-        escribirTexto();
+            escribirTexto();
         }
 
         window.addEventListener('load', () => {
-        iniciarCiclo();
+            iniciarCiclo();
         });
     </script>
 </body>
