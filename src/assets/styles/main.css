@@ -19,9 +19,7 @@ body {
     color: var(--text-color);
 }
 
-.container {
-    position: absolute;
-}
+
 
     h1 {
     font-size: 2rem;
@@ -30,9 +28,13 @@ body {
 }
 
     #tablero {
-    height: 100vh;
+        text-align: center;
+    max-width: 600px;
+    height: 100px;
     position: relative;
     overflow: hidden;
+    margin: auto;
+    background-color: green;
 }
 
     #ball {
@@ -41,4 +43,10 @@ body {
     background-color: var(--text-color);
     position: absolute;
     border-radius: 50%;
+}
+
+.terminal_container {
+    color: green;
+    font-weight: 400;
+    font-size: 12px;
 }
